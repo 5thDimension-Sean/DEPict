@@ -1,0 +1,4 @@
+fastapi>=0.110
+uvicorn[standard]>=0.29
+# The host package provides device access + shared schemas:
+#   pip install -e ../software

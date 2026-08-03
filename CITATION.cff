@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+title: "DEPict: an open-source tri-modal platform for microplastic polymer identification"
+message: "If you use this software or hardware, please cite it as below."
+type: software
+authors:
+  - given-names: DEPict
+    family-names: Contributors
+repository-code: "https://github.com/your-org/DEPict"
+license: MIT
+keywords:
+  - microplastics
+  - dielectrophoresis
+  - impedance-spectroscopy
+  - computer-vision
+  - sensor-fusion
+  - environmental-monitoring
+abstract: >
+  DEPict is an open-source, sub-$400 platform that identifies the polymer type of
+  microplastic particles by fusing dielectrophoresis, impedance spectroscopy, and
+  computer vision with on-device machine learning, as an affordable alternative to
+  FTIR spectroscopy.
