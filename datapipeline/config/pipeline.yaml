@@ -1,0 +1,18 @@
+# DEPict data pipeline config
+
+input:
+  raw_glob: "data/raw/*.jsonl"
+
+calibration:
+  eis_reference: "data/calibration/eis_open_short_load.json"
+  size_standard: "data/calibration/size_standard.json"
+
+split:
+  group_key: "record_id"
+  ratios: { train: 0.7, val: 0.15, test: 0.15 }
+  stratify_by: "label"
+  seed: 42
+
+output:
+  dir: "software/datasets"
+  format: "parquet"
