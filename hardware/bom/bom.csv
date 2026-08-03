@@ -1,12 +1,18 @@
 ref,qty,part,description,package,unit_price_usd,line_total_usd,source,notes
-U1,1,ESP32-S3-WROOM-1,MCU with Wi-Fi/BLE + camera IF + PSRAM,module,4.00,4.00,TBD,CV + fusion host
-U2,1,AD5941,High-precision impedance analog front end,LFCSP,12.00,12.00,TBD,EIS modality
-U3,1,AD9833,Programmable DDS waveform generator,MSOP-10,6.00,6.00,TBD,DEP drive signal
-U4,1,OV5640,5MP camera sensor module,module,8.00,8.00,TBD,CV modality
-U5,1,PA_HV_DRIVER,High-voltage op-amp / driver for DEP electrodes,SOIC,5.00,5.00,TBD,placeholder part
-U6,1,AMS1117-3.3,LDO regulator,SOT-223,0.20,0.20,TBD,power
-PCB1,1,DEPict-carrier,2-layer carrier PCB,100x80mm,15.00,15.00,TBD,fab estimate qty 5
-EL1,1,IDE-electrode,Interdigitated electrode / microfluidic cell,custom,20.00,20.00,TBD,DEP + EIS cell
-MISC,1,passives-kit,R/C/L passives, connectors, headers,-,10.00,10.00,TBD,estimate
-ENC1,1,enclosure,3D-printed housing + cell holder,PLA/PETG,8.00,8.00,TBD,filament estimate
-,,,,,TOTAL,88.20,,under $400 target
+U1,1,ESP32-S3-WROOM-1,MCU with Wi-Fi/BLE + camera IF + PSRAM,module,2.50,2.50,AliExpress,CV + fusion host
+U2,1,AD5941,High-precision impedance analog front end,LFCSP,9.00,9.00,AliExpress,EIS modality — do not substitute
+U3,1,AD9833,Programmable DDS waveform generator,MSOP-10,1.50,1.50,AliExpress,DEP drive signal — available as module
+U4,1,OV2640,2MP camera sensor module,module,3.00,3.00,AliExpress,CV modality — better ESP32 support than OV5640
+U5,1,TL072,Dual op-amp low-cost DEP driver,SOIC,0.50,0.50,AliExpress/DigiKey,Boosts DDS to ~5Vpp — upgrade if DEP signal too weak
+U6,1,AMS1117-3.3,LDO regulator,SOT-223,0.10,0.10,AliExpress,power
+PCB1,1,DEPict-carrier,2-layer ENIG carrier PCB with integrated interdigitated electrode pattern,100x80mm,15.00,15.00,JLCPCB qty5,ENIG finish required for electrode traces; 0.1mm trace/space; replaces separate EL1 cell
+MISC,1,passives-kit,R/C/L passives connectors headers,-,5.00,5.00,AliExpress,estimate
+ENC1,1,enclosure,3D-printed housing + cell holder + liquid dam ring,PLA/PETG,8.00,8.00,Print yourself,Dam ring holds liquid drop over PCB electrode; replaces separate microfluidic cell wall
+LENS1,1,M12-macro-lens,Close-focus M12 lens for OV2640,M12,8.00,8.00,Amazon/AliExpress,Pushes CV floor to ~5-10um; replaces stock OV2640 lens
+CAL1,1,microspheres-PE-PS,Calibration microspheres PE + PS known polymer,-,60.00,60.00,Cospheric.com,Ground truth for ML training — order early slow shipping
+CAL2,1,reference-resistors,Precision resistors for AD5941 open/short/load calibration,-,5.00,5.00,DigiKey,EIS calibration
+CONS1,1,distilled-water,Automotive distilled water 1 gallon ~1-5 uS/cm,gallon,2.00,2.00,Walmart/AutoZone,Low-conductivity sample medium
+CONS2,1,conductivity-meter,Pen-style conductivity meter,handheld,15.00,15.00,Amazon,Verify water conductivity before each run
+CONS3,1,pipettes,Disposable transfer pipettes pack,-,5.00,5.00,Amazon,Load sample into cell
+CONS4,1,nitrile-gloves,Nitrile gloves box,-,10.00,10.00,Amazon,Sample handling and HV safety
+,,,,,TOTAL,149.10,,electronics $44.60 + calibration/consumables $104.50
