@@ -1,18 +1,22 @@
 ref,qty,part,description,package,unit_price_usd,line_total_usd,source,notes
-U1,1,ESP32-S3-WROOM-1,MCU with Wi-Fi/BLE + camera IF + PSRAM,module,2.50,2.50,AliExpress,CV + fusion host
-U2,1,AD5941,High-precision impedance analog front end,LFCSP,9.00,9.00,AliExpress,EIS modality — do not substitute
-U3,1,AD9833,Programmable DDS waveform generator,MSOP-10,1.50,1.50,AliExpress,DEP drive signal — available as module
-U4,1,OV2640,2MP camera sensor module,module,3.00,3.00,AliExpress,CV modality — better ESP32 support than OV5640
-U5,1,TL072,Dual op-amp low-cost DEP driver,SOIC,0.50,0.50,AliExpress/DigiKey,Boosts DDS to ~5Vpp — upgrade if DEP signal too weak
-U6,1,AMS1117-3.3,LDO regulator,SOT-223,0.10,0.10,AliExpress,power
-PCB1,1,DEPict-carrier,2-layer ENIG carrier PCB with integrated interdigitated electrode pattern,100x80mm,15.00,15.00,JLCPCB qty5,ENIG finish required for electrode traces; 0.1mm trace/space; replaces separate EL1 cell
-MISC,1,passives-kit,R/C/L passives connectors headers,-,5.00,5.00,AliExpress,estimate
-ENC1,1,enclosure,3D-printed housing + cell holder + liquid dam ring,PLA/PETG,8.00,8.00,Print yourself,Dam ring holds liquid drop over PCB electrode; replaces separate microfluidic cell wall
-LENS1,1,M12-macro-lens,Close-focus M12 lens for OV2640,M12,8.00,8.00,Amazon/AliExpress,Pushes CV floor to ~5-10um; replaces stock OV2640 lens
-CAL1,1,microspheres-PE-PS,Calibration microspheres PE + PS known polymer,-,60.00,60.00,Cospheric.com,Ground truth for ML training — order early slow shipping
-CAL2,1,reference-resistors,Precision resistors for AD5941 open/short/load calibration,-,5.00,5.00,DigiKey,EIS calibration
-CONS1,1,distilled-water,Automotive distilled water 1 gallon ~1-5 uS/cm,gallon,2.00,2.00,Walmart/AutoZone,Low-conductivity sample medium
-CONS2,1,conductivity-meter,Pen-style conductivity meter,handheld,15.00,15.00,Amazon,Verify water conductivity before each run
-CONS3,1,pipettes,Disposable transfer pipettes pack,-,5.00,5.00,Amazon,Load sample into cell
+U1,1,ESP32-S3-WROOM-1-N4R8,MCU with Wi-Fi/BLE + camera IF + 8MB PSRAM + 4MB flash,module,3.00,3.00,AliExpress,N4R8 variant required — 8MB PSRAM needed for camera frame + ML model simultaneously
+U2,1,AD5941BCPZ,High-precision impedance analog front end,LFCSP-40,9.00,9.00,DigiKey/Mouser,EIS modality — BCPZ is single unit tray; do not substitute or use REEL/automotive variants
+U3,1,AD9833-module,Programmable DDS waveform generator module,module,1.50,1.50,AliExpress,Buy as pre-soldered module — bare BRMZ chip is MSOP-10 0.65mm pitch difficult to hand solder
+U4,1,OV2640,2MP camera sensor module,module,3.00,3.00,AliExpress,CV modality — better ESP32-S3 software support than OV5640; stock lens replaced by LENS1
+U5,1,LM7171AIN,High-speed op-amp DEP driver 4100 V/us slew rate,DIP-8,2.50,2.50,DigiKey/Mouser,Replaces TL072 — TL072 too slow (13 V/us) for 20MHz DEP drive; AIN = through-hole DIP-8 easy to solder
+U6,1,AMS1117-3.3,LDO regulator,SOT-223,0.10,0.10,AliExpress,Clean 3.3V rail for all logic
+PCB1,1,DEPict-carrier,2-layer ENIG carrier PCB with integrated interdigitated electrode pattern,100x80mm,15.00,15.00,JLCPCB qty5,ENIG finish required for electrode traces; 0.1mm trace/space; electrode integrated — no separate cell needed
+MISC,1,passives-kit,R/C/L passives connectors headers,-,5.00,5.00,AliExpress,Resistors capacitors inductors SPI headers USB-C connector
+ENC1,1,enclosure,3D-printed housing + cell holder + liquid dam ring,PLA/PETG,8.00,8.00,Print yourself (OpenSCAD),Dam ring holds liquid drop over PCB electrode; fixes camera focal distance; blocks stray light
+LENS1,1,M12-macro-lens,Close-focus M12 lens for OV2640,M12,8.00,8.00,Amazon/AliExpress,Pushes CV detection floor to ~5-10um; replace stock OV2640 lens; focal distance sets px_per_um calibration
+CAL1,1,microspheres-PE-PS,Calibration microspheres PE + PS known polymer 20-200um range,-,60.00,60.00,Cospheric.com,Ground truth for ML training — order early; slow shipping
+CAL2,1,microspheres-PP-PET,Calibration microspheres PP + PET known polymer 20-200um range,-,60.00,60.00,Cospheric.com,Additional polymer classes for training data
+CAL3,1,reference-resistors,Precision resistors for AD5941 open/short/load calibration (1k + 10k + 100k ohm),-,5.00,5.00,DigiKey,EIS calibration — needed before any valid EIS measurement
+CONS1,1,distilled-water,Automotive distilled water 1 gallon ~1-5 uS/cm,gallon,2.00,2.00,Walmart/AutoZone,Low-conductivity sample medium; verify with CONS2 before use
+CONS2,1,conductivity-meter,Pen-style conductivity meter,handheld,15.00,15.00,Amazon,Verify water conductivity before each run; target <10 uS/cm
+CONS3,1,pipettes,Disposable transfer pipettes pack,-,5.00,5.00,Amazon,Load sample drop into cell
 CONS4,1,nitrile-gloves,Nitrile gloves box,-,10.00,10.00,Amazon,Sample handling and HV safety
-,,,,,TOTAL,149.10,,electronics $44.60 + calibration/consumables $104.50
+TOOL1,1,soldering-iron,Temperature-controlled soldering iron fine tip (Hakko FX-888 or equivalent),-,50.00,50.00,Amazon,Required for PCB assembly
+TOOL2,1,multimeter,Digital multimeter,-,20.00,20.00,Amazon,Board bring-up and voltage verification
+TOOL3,1,bench-power-supply,Variable bench power supply 0-30V 0-5A,-,35.00,35.00,Amazon,Required for HV rail bring-up and testing before full PCB is assembled
+,,,,,TOTAL,372.10,,electronics $47.10 + calibration $125.00 + consumables $32.00 + tools $105.00
