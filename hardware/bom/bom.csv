@@ -1,0 +1,12 @@
+ref,qty,part,description,package,unit_price_usd,line_total_usd,source,notes
+U1,1,ESP32-S3-WROOM-1,MCU with Wi-Fi/BLE + camera IF + PSRAM,module,4.00,4.00,TBD,CV + fusion host
+U2,1,AD5941,High-precision impedance analog front end,LFCSP,12.00,12.00,TBD,EIS modality
+U3,1,AD9833,Programmable DDS waveform generator,MSOP-10,6.00,6.00,TBD,DEP drive signal
+U4,1,OV5640,5MP camera sensor module,module,8.00,8.00,TBD,CV modality
+U5,1,PA_HV_DRIVER,High-voltage op-amp / driver for DEP electrodes,SOIC,5.00,5.00,TBD,placeholder part
+U6,1,AMS1117-3.3,LDO regulator,SOT-223,0.20,0.20,TBD,power
+PCB1,1,DEPict-carrier,2-layer carrier PCB,100x80mm,15.00,15.00,TBD,fab estimate qty 5
+EL1,1,IDE-electrode,Interdigitated electrode / microfluidic cell,custom,20.00,20.00,TBD,DEP + EIS cell
+MISC,1,passives-kit,R/C/L passives, connectors, headers,-,10.00,10.00,TBD,estimate
+ENC1,1,enclosure,3D-printed housing + cell holder,PLA/PETG,8.00,8.00,TBD,filament estimate
+,,,,,TOTAL,88.20,,under $400 target
