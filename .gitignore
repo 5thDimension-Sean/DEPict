@@ -15,3 +15,5 @@ htmlcov/
 .coverage
 dist/
 build/
+
+/hardware.md
